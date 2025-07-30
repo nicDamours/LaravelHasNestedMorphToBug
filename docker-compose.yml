@@ -1,0 +1,18 @@
+services:
+  php:
+    build:
+      context: .
+    volumes:
+      - ./:/var/www
+    ports:
+      - 8090:80
+
+  ## Note. This database does not persist. Its only purpose is to run tests. Every data added to this database will be lost on restart.
+  test-db:
+    image: mariadb:10.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=secret
+      - MYSQL_DATABASE=test-db
+
