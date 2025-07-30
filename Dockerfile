@@ -1,5 +1,7 @@
 FROM php:8.3.6-apache
 
+WORKDIR /var/www
+
 # Install tools && libraries
 RUN apt-get -y update \
 	&& apt-get -y upgrade \
